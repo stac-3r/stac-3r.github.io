@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STAC: Spatio-Temporal Aware Cache Compression for Streaming 3D Reconstruction</title>
+  <meta name="description" content="STAC: Plug-and-Play Spatio-Temporal Aware Cache Compression for Streaming 3D Reconstruction. CVPR 2026.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1>STAC: Plug-and-Play Spatio-Temporal Aware Cache Compression for Streaming 3D Reconstruction</h1>
+
+    <div class="authors">
+      <span class="author">
+        <a href="https://rainzor.github.io" target="_blank">Runze Wang</a><sup>1</sup>
+      </span>
+      <span class="author">
+        Yuxuan Song<sup>1</sup>
+      </span>
+      <span class="author">
+        Youcheng Cai<sup>1</sup>
+      </span>
+      <span class="author">
+        <a href="http://staff.ustc.edu.cn/~lgliu/" target="_blank">Ligang Liu</a><sup>1</sup>
+      </span>
+    </div>
+
+    <div class="affiliations">
+      <span><sup>1</sup>University of Science and Technology of China</span>
+    </div>
+
+    <div class="venue">
+      <span class="venue-badge">CVPR 2026</span>
+    </div>
+
+    <div class="links">
+      <a href="#" class="btn" title="Paper">
+        <i class="fa-solid fa-file-pdf"></i> Paper
+      </a>
+      <a href="#" class="btn" title="arXiv">
+        <i class="ai ai-arxiv"></i> arXiv
+      </a>
+      <a href="#" class="btn" title="Code">
+        <i class="fa-brands fa-github"></i> Code
+      </a>
+      <!-- <a href="#" class="btn" title="Video">
+        <i class="fa-solid fa-video"></i> Video
+      </a> -->
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="teaser">
+  <div class="container">
+    <img src="assets/teaser.jpg" alt="STAC teaser figure showing spatio-temporal cache compression for streaming 3D reconstruction">
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container">
+    <h2>Abstract</h2>
+    <p class="abstract-text">
+      Online 3D reconstruction from streaming inputs requires both long-term temporal consistency and efficient memory usage. While causal VGGT transformers address this challenge through key-value (KV) cache mechanism, the linear growth of the cache introduces a significant memory bottleneck. When memory constraints trigger early eviction, reconstruction quality and temporal consistency deteriorate markedly. In this work, we observe that attention patterns in causal transformers for 3D reconstruction exhibit intrinsic spatio-temporal sparsity. Leveraging this insight, we propose <strong>STAC</strong>, a <strong>S</strong>patio-<strong>T</strong>emporally <strong>A</strong>ware <strong>C</strong>ache compression framework specifically designed for streaming 3D reconstruction using large causal transformers. STAC incorporates three key components: a <strong>Working Temporal Token Caching</strong> mechanism that preserves long-term informative tokens based on decayed cumulative attention scores; a <strong>Long-term Spatial Token Caching</strong> scheme that consolidates spatially redundant tokens into voxel-aligned representations for memory-efficient storage; and a <strong>Chunk-based Multi-frame Optimization</strong> strategy that jointly optimizes consecutive frames to enhance temporal coherence and leverage GPU parallelism. Extensive experiments demonstrate that STAC achieves state-of-the-art reconstruction quality while reducing memory consumption by <strong>8.5&times;</strong> and accelerating inference by <strong>3.5&times;</strong>, enabling scalable and real-time 3D reconstruction in streaming settings.
+    </p>
+  </div>
+</section>
+
+<!-- Pipeline / Method -->
+<section class="section section--alt">
+  <div class="container">
+    <h2>Method</h2>
+    <div class="figure">
+      <img src="assets/pipeline.jpg" alt="STAC pipeline overview">
+      <p class="figure-caption">
+        Overview of the STAC framework. Our method consists of three key components: Working Temporal Token Caching, Long-term Spatial Token Caching, and Chunk-based Multi-frame Optimization.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Results (placeholder) -->
+<!-- <section class="section">
+  <div class="container">
+    <h2>Results</h2>
+    <p>Coming soon.</p>
+  </div>
+</section> -->
+
+<!-- BibTeX -->
+<section class="section">
+  <div class="container">
+    <h2>BibTeX</h2>
+    <div class="bibtex-wrap">
+      <button class="bibtex-copy" id="copy-btn" title="Copy BibTeX">
+        <i class="fa-regular fa-copy"></i> Copy
+      </button>
+      <pre class="bibtex" id="bibtex-text">@inproceedings{wang2026stac,
+  title={STAC: Plug-and-Play Spatio-Temporal Aware Cache Compression for Streaming 3D Reconstruction},
+  author={Wang, Runze and Song, Yuxuan and Cai, Youcheng and Liu, Ligang},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2026}
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>
+      This website template is adapted from
+      <a href="https://nerfies.github.io" target="_blank">Nerfies</a>.
+    </p>
+  </div>
+</footer>
+
+<script src="static/js/main.js"></script>
+</body>
+</html>
