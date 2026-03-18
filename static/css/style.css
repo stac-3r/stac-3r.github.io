@@ -182,6 +182,14 @@ img {
   color: var(--color-text);
 }
 
+.section-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
 /* Figures */
 .figure {
   margin: 16px 0;
@@ -192,12 +200,40 @@ img {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
+.figure--narrow img {
+  width: 70%;
+  margin: 0 auto;
+}
+
 .figure-caption {
   margin-top: 12px;
   font-size: 0.9rem;
   color: var(--color-text-light);
   text-align: center;
   line-height: 1.5;
+}
+
+/* Result subsections (Results page) */
+.result-subsection {
+  margin-bottom: 48px;
+}
+
+.result-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.result-subsection h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.result-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+  line-height: 1.6;
 }
 
 /* =============================================

@@ -12,6 +12,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 
@@ -77,26 +85,86 @@
   </div>
 </section>
 
+<!-- Observation -->
+<section class="section">
+  <div class="container">
+    <h2>Observation</h2>
+    <p class="section-text">
+      <strong>Spatial Sparsity.</strong> As shown in (a), some heads exhibit sparsity along the spatial dimension of the KV cache: the query-key correlations are strongly related to scene geometry and image content, leading the model to focus on visually and spatially adjacent regions across frames.<br><br>
+      <strong>Temporal Sparsity.</strong> As shown in (b)-(d), other heads exhibit sparsity along the temporal dimension: each query is strongly correlated with only a small subset of keys over time, including first-frame references, landmark frames, and camera tokens carrying long-range temporal context.<br><br>
+    </p>
+    <div class="figure">
+      <center>
+      <img src="assets/sparse.png" width="70%" height="70%" alt="Spatio-temporal attention sparsity patterns in Causal-VGGT">
+        <p class="figure-caption">
+          <strong>Spatio-temporal attention sparsity.
+        </p>
+      </center>
+    </div>
+  </div>
+</section>
+
 <!-- Pipeline / Method -->
 <section class="section section--alt">
   <div class="container">
     <h2>Method</h2>
+    <p class="section-text">
+      STAC reconstructs 3D scenes online with spatio-temporal token caching and chunk-based causal inference. In each chunk, the Causal-VGGT module processes ViT-tokenized frames with causal attention over the working temporal cache \(M^{\text{temp}}\) and the spatial cache \(\mathcal{M}^{\text{spat}}\) retrieved from a 3D voxel grid. Working Temporal Token Caching retains high-scoring anchor tokens together with reference and sliding-window tokens, while Long-term Spatial Token Caching aggregates evicted tokens with 3D coordinates into compact voxel-aligned representations for future retrieval.
+    </p>
     <div class="figure">
       <img src="assets/pipeline.jpg" alt="STAC pipeline overview">
       <p class="figure-caption">
-        Overview of the STAC framework. Our method consists of three key components: Working Temporal Token Caching, Long-term Spatial Token Caching, and Chunk-based Multi-frame Optimization.
+        Overview of the STAC framework.
       </p>
     </div>
   </div>
 </section>
 
-<!-- Results (placeholder) -->
-<!-- <section class="section">
+<!-- Results -->
+<section class="section section--alt">
   <div class="container">
     <h2>Results</h2>
-    <p>Coming soon.</p>
+
+    <div class="result-subsection">
+      <h3>Point Cloud Reconstruction</h3>
+      <p class="result-desc">Quantitative results for point cloud reconstruction on NRGBD and 7-Scenes. Integrating STAC into STream3R and StreamVGGT substantially improves memory and runtime efficiency while preserving reconstruction quality.</p>
+      <div class="figure">
+        <img src="assets/reconstruction.png" alt="STAC point cloud reconstruction results">
+        <p class="figure-caption">Quantitative and Performance results on NRGBD and 7-Scenes.</p>
+      </div>
+    </div>
+
+    <div class="result-subsection">
+      <h3>Camera Pose Estimation</h3>
+      <p class="result-desc">Camera pose estimation on Sintel, TUM Dynamics, and ScanNet. STAC achieves competitive accuracy under a substantially reduced memory budget.</p>
+      <div class="figure">
+        <img src="assets/camera.png" alt="STAC camera pose estimation results">
+        <p class="figure-caption">Quantitative results on Sintel, TUM Dynamics, and ScanNet.</p>
+      </div>
+    </div>
+
+
+    <div class="result-subsection">
+      <h3>Depth Estimation</h3>
+      <p class="result-desc">Scale-invariant depth estimation on Sintel, Bonn, and KITTI. STAC improves depth accuracy and temporal consistency under the same runtime memory budget.</p>
+      <div class="figure">
+        <center>
+        <img src="assets/depth.png" width="80%" height="80%" alt="STAC depth estimation results">
+        <p class="figure-caption">Quantitative results on Sintel, Bonn, and KITTI.</p>
+        </center>
+      </div>
+    </div>
+
+    <div class="result-subsection">
+      <h3>Qualitative Visualization</h3>
+      <p class="result-desc">Qualitative visualizations of streaming reconstruction with compressed cache.</p>
+      <div class="figure">
+        <img src="assets/visualization.png" alt="STAC qualitative visualization">
+        <p class="figure-caption">Qualitative visualization of streaming reconstruction.</p>
+      </div>
+    </div>
   </div>
-</section> -->
+</section>
 
 <!-- BibTeX -->
 <section class="section">
