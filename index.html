@@ -71,9 +71,12 @@
 <!-- Teaser -->
 <section class="teaser">
   <div class="container">
-    <img src="assets/teaser.png" alt="STAC teaser figure showing spatio-temporal cache compression for streaming 3D reconstruction">
+    <center>
+    <img src="assets/teaser_dynamic.gif" alt="STAC teaser animation">
+    </center>
   </div>
 </section>
+
 
 <!-- Abstract -->
 <section class="section">
@@ -82,6 +85,13 @@
     <p class="abstract-text">
       Online 3D reconstruction from streaming inputs requires both long-term temporal consistency and efficient memory usage. Although causal VGGT transformers address this challenge through a key-value (KV) cache mechanism, the cache grows linearly with the stream length, creating a major memory bottleneck. Under limited memory budgets, early cache eviction significantly degrades reconstruction quality and temporal consistency. In this work, we observe that attention in causal transformers for 3D reconstruction exhibits intrinsic spatio-temporal sparsity. Based on this insight, we propose <strong>STAC</strong>, a <strong>S</strong>patio-<strong>T</strong>emporally <strong>A</strong>ware <strong>C</strong>ache Compression framework for streaming 3D reconstruction with large causal transformers. STAC consists of three key components: (1) a <strong>Working Temporal Token Caching</strong> mechanism that preserves long-term informative tokens using decayed cumulative attention scores; (2) a <strong>Long-term Spatial Token Caching</strong> scheme that compresses spatially redundant tokens into voxel-aligned representations for memory-efficient storage; and (3) a <strong>Chunk-based Multi-frame Optimization</strong> strategy that jointly processes consecutive frames to improve temporal coherence and GPU efficiency. Extensive experiments show that STAC achieves state-of-the-art reconstruction quality while reducing memory consumption by nearly <strong>10&times;</strong> and accelerating inference by <strong>4&times;</strong>, substantially improving the scalability of real-time 3D reconstruction in streaming settings.
     </p>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="teaser">
+  <div class="container">
+    <img src="assets/teaser.png" alt="STAC teaser figure showing spatio-temporal cache compression for streaming 3D reconstruction">
   </div>
 </section>
 
