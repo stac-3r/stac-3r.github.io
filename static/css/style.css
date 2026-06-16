@@ -114,6 +114,10 @@ img {
   margin: 0 6px;
 }
 
+.venue-badge-alt {
+  background: #1f9d55;
+}
+
 /* Link Buttons */
 .links {
   display: flex;
